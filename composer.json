@@ -1,6 +1,6 @@
 {
     "name": "rafaelrglima/database",
-    "description": "Manage database backups on staging servers and create list of possible commands to sync with local envirment, etc",
+    "description": "Collection of database artisan commands to manage database while in development stage",
     "type": "library",
     "license": "MIT",
     "authors": [

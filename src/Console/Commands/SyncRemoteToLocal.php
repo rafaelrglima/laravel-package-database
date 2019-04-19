@@ -1,24 +1,24 @@
 <?php
 
-namespace Rafaelrglima\Console\Commands;
+namespace Rafaelrglima\Database\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class databaseSyncRemoteToLocal extends Command
+class SyncRemoteToLocal extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'database:syncRemoteToLocal';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Sync remote database either by ssh or connection string with local database';
 
     /**
      * Create a new command instance.
@@ -37,6 +37,6 @@ class databaseSyncRemoteToLocal extends Command
      */
     public function handle()
     {
-        //
+        $this->info("Command is working");
     }
 }

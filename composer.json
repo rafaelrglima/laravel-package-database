@@ -1,0 +1,13 @@
+{
+    "name": "rafaelrglima/database",
+    "description": "Manage database backups on staging servers and create list of possible commands to sync with local envirment, etc",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rafael Lima",
+            "email": "rafaelrglima@gmail.com"
+        }
+    ],
+    "require": {}
+}

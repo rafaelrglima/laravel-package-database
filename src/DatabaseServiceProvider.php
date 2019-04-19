@@ -8,6 +8,7 @@ class DatabaseServiceProvider extends ServiceProvider
 {
     protected $commands = [
         Console\Commands\SyncRemoteToLocal::class,
+        Console\Commands\SampleCommand::class,
     ];
 
     /**
@@ -18,6 +19,7 @@ class DatabaseServiceProvider extends ServiceProvider
     public function register()
     {
         $this->commands($this->commands);
+        $this->mergeConfigFrom(__DIR__ . '/../config/database-artisan-commands.php', 'database_artisan_commands');
     }
 
     /**
@@ -27,6 +29,10 @@ class DatabaseServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/database-artisan-commands.php' => config_path('database-artisan-commands.php'),
+            ], 'database_artisan_commands');
+        }
     }
 }

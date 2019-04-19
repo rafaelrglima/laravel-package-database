@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 class DatabaseServiceProvider extends ServiceProvider
 {
     protected $commands = [
-        'rafaelrglima\database\Console\Commands\databaseSyncRemoteToLocal',
+        'rafaelrglima\database\Console\Commands\SyncRemoteToLocal',
         //'V\Package\Commands\FooCommand',
         //'Vendor\Package\Commands\BarCommand',
     ];

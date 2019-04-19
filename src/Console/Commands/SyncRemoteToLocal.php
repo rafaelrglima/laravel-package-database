@@ -1,6 +1,6 @@
 <?php
 
-namespace Rafaelrglima\database\Console\Commands;
+namespace Rafaelrglima\Database\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -37,6 +37,6 @@ class SyncRemoteToLocal extends Command
      */
     public function handle()
     {
-        this.info("sdfsdf");
+        $this->info("Command is working");
     }
 }

@@ -18,7 +18,8 @@ return [
         'ssh' => env('STG_SSH_HOSTNAME', 'remotesshserver'),
         'docker' => env('STG_DOCKER_HOSTNAME', 'app-mysql'),
         'database' => env('STG_DATABASE_NAME', 'appdb'),
-        'password' => env('STG_DATABASE_PW', 'appdb')
+        'username' => env('STG_DATABASE_USER', 'dbusername'),
+        'password' => env('STG_DATABASE_PW', 'dbpassword')
     ],
 
 

@@ -38,15 +38,15 @@ class SyncRemoteToLocal extends Command
     public function handle()
     {
 
-        $stg_ssh_hostname      = \Config::get('staging_server.ssh');
-        $stg_docker_hostname   = \Config::get('staging_server.docker');
-        $stg_database_name     = \Config::get('staging_server.database');
-        $stg_database_username = \Config::get('staging_server.username');
-        $stg_database_pw       = \Config::get('staging_server.password');
+        $stg_ssh_hostname      = \Config::get('database-artisan-commands.staging_server.ssh');
+        $stg_docker_hostname   = \Config::get('database-artisan-commands.staging_server.docker');
+        $stg_database_name     = \Config::get('database-artisan-commands.staging_server.database');
+        $stg_database_username = \Config::get('database-artisan-commands.staging_server.username');
+        $stg_database_pw       = \Config::get('database-artisan-commands.staging_server.password');
 
-        $local_hostname        = \Config::get('local_server.hostname');
-        $local_username        = \Config::get('local_server.username');
-        $local_password        = \Config::get('local_server.password');
+        $local_hostname        = \Config::get('database-artisan-commands.local_server.hostname');
+        $local_username        = \Config::get('database-artisan-commands.local_server.username');
+        $local_password        = \Config::get('database-artisan-commands.local_server.password');
 
         $temp_filename   = $stg_database_name."_".date("Y_m_d_H_i_s").".sql.gz";
         $local_storage   = storage_path().'/database';
@@ -75,7 +75,7 @@ class SyncRemoteToLocal extends Command
         exec("mysql -h172.17.0.2 -uroot -p@rtNdX34d7882 -e 'create database {$stg_database_name};'");
 
         $this->info("8. Restoring backup to our local mysql server");
-        exec("gunzip < {$local_storage}/{$temp_filename} | mysql -h{$local_hostname} -u{$local_username} -p{$local_password} --database={$stg_database_name}_bkp");
+        exec("gunzip < {$local_storage}/{$temp_filename} | mysql -h{$local_hostname} -u{$local_username} -p{$local_password} --database={$stg_database_name}");
 
         $this->info("9. Restore is complete.");
     }

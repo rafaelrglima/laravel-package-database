@@ -69,10 +69,10 @@ class SyncRemoteToLocal extends Command
         exec("ssh {$stg_ssh_hostname} \"rm /home/{$temp_filename}\"");
 
         $this->info("6. Dropping local database: {$stg_database_name}");
-        exec("mysql -h172.17.0.2 -uroot -p@rtNdX34d7882 -e 'drop database {$stg_database_name};'");
+        exec("mysql -h{$local_hostname} -u{$local_username} -p{$local_password} -e 'drop database {$stg_database_name};'");
 
         $this->info("7. Creating local database: {$stg_database_name}");
-        exec("mysql -h172.17.0.2 -uroot -p@rtNdX34d7882 -e 'create database {$stg_database_name};'");
+        exec("mysql -h{$local_hostname} -u{$local_username} -p{$local_password} -e 'create database {$stg_database_name};'");
 
         $this->info("8. Restoring backup to our local mysql server");
         exec("gunzip < {$local_storage}/{$temp_filename} | mysql -h{$local_hostname} -u{$local_username} -p{$local_password} --database={$stg_database_name}");
